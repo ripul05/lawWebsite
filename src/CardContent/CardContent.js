@@ -30,7 +30,6 @@ const CardContent = () => {
           </div>
           
           <div className="decorative-element">
-            <div className="animated-diamond"></div>
             <span className="specialist-text">
               Tax Treaty Specialists
             </span>

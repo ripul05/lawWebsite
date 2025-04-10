@@ -1,139 +1,350 @@
+/* Updated CSS */
 .law-flow-container {
   min-height: 100vh;
   padding: 4rem 2rem;
-  background: linear-gradient(to bottom, #1a1a1a, #141415);
+  background: linear-gradient(to bottom, #0a0a0a, #111112);
   color: #f9fafb;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.decorative-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.radial-gradient {
+  position: absolute;
+  width: 150vw;
+  height: 150vh;
+  background: radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+  animation: gradient-pulse 12s infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes gradient-pulse {
+  0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.floating-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#2d3748 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
 }
 
 .law-title {
-  font-size: 2.8rem;
-  font-weight: 600;
-  color: #f1f5f9;
-  margin-bottom: 3rem;
-}
-
-.law-flow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
+  font-size: 3.2rem; /* increased font size */
+  font-weight: 700;
+  color: white;
   margin-bottom: 4rem;
-}
-
-.law-step {
   position: relative;
-  background: #1f2937;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 220px;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.law-step:hover {
-  transform: translateY(-8px);
-}
-
-.icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #60a5fa; /* Light blue for contrast */
-}
-
-.law-step h3 {
-  font-size: 1.2rem;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-}
-
-.law-step p {
-  font-size: 0.95rem;
-  color: #cbd5e1;
-}
-
-.arrow {
-  position: absolute;
-  right: -1.5rem;
-  top: 50%;
-  font-size: 1.5rem;
-  color: #6b7280;
-  transform: translateY(-50%);
-}
-
-.law-map-section {
-  margin-top: 4rem;
-}
-
-.world-map {
-  width: 80%;
-  max-width: 900px;
-  opacity: 0.95;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
-}
-
-.map-note {
-  margin-top: 1rem;
-  color: #94a3b8;
-  font-size: 1rem;
-  font-style: italic;
-}
-
-
-
-/* Image hover glow */
-img:hover {
-  filter: drop-shadow(0 0 15px #60a5fa);
-  transition: all 0.3s ease;
-}
-
-/* CTA Section */
-.cta-section {
-  margin-top: 4rem;
+  display: inline-block;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
   text-align: center;
+  letter-spacing: 1px;
 }
 
-.cta-text {
-  font-size: 2rem;
-  color: #f9fafb;
-  margin-bottom: 1.5rem;
+/* Glow on hover */
+.law-title:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 
+               0 0 20px rgba(255, 255, 255, 0.4), 
+               0 0 40px rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
 }
 
-.cta-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+.globe-icon {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
 }
 
-.cta-button {
-  background: #60a5fa;
-  color: #0f172a;
-  font-weight: 600;
-  padding: 0.8rem 1.5rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #3b82f6;
-  color: #ffffff;
-}
-
-.pointer-character {
-  width: 60px;
-  height: auto;
-  animation: bouncePointer 1.8s infinite ease-in-out;
-}
-
-@keyframes bouncePointer {
+@keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
+.law-flow-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #60a5fa, #4f46e5);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.law-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.law-step {
+  position: relative;
+  background: #1a1a1d;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border: 1px solid #2d3748;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.law-step:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(96, 165, 250, 0.2);
+  border-color: #60a5fa;
+}
+
+.icon-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.icon-glow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(96, 165, 250, 0.15);
+  border-radius: 50%;
+  filter: blur(20px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon {
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.law-step:hover .icon {
+  transform: scale(1.1);
+}
+
+.arrow {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #60a5fa;
+}
+
+.arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+/* Enhanced CTA Section */
+.cta-card {
+  background: linear-gradient(135deg, #1a1a1d 0%, #0f172a 100%);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border: 1px solid #2d3748;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-text {
+  font-size: 2.2rem;
+  background: linear-gradient(45deg, #60a5fa, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.cta-subtext {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.pointer-character {
+  width: 100px;
+  height: auto;
+  /* animation: float 3s ease-in-out infinite; */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .law-title {
+    font-size: 2.2rem;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .law-flow {
+    grid-template-columns: 1fr;
+  }
+  
+  .arrow {
+    display: none;
+  }
+  
+  .cta-text {
+    font-size: 1.8rem;
+  }
+  
+  .pointer-character {
+    width: 80px;
+  }
+}
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* or space-between if needed */
+  gap: 1rem; /* spacing between button and image */
+  margin-top: 1.5rem;
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #60a5fa, #0ca5ec);
+  color: lch(0% 0 0);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1e40af; /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.pointer-character {
+  height: 83px; /* adjust as needed */
+  width: auto;
+}
+
+.law-flow-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #60a5fa, #4f46e5);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.law-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.law-step {
+  position: relative;
+  background: #1a1a1d;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 45%;
+  max-width: 400px;
+  margin: 2rem 0;
+  border: 1px solid #2d3748;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.law-step:nth-child(odd) {
+  margin-left: 5%;
+}
+
+.law-step:nth-child(even) {
+  margin-left: 50%;
+}
+
+.step-connector {
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  height: 2px;
+  background: #60a5fa;
+  z-index: -1;
+}
+
+.step-connector.left {
+  right: -20%;
+  transform: translateY(-50%);
+}
+
+.step-connector.right {
+  left: -20%;
+  transform: translateY(-50%);
+}
+
+.step-connector::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #60a5fa;
+  border-radius: 50%;
+  top: -5px;
+  right: -6px;
+}
+
+.law-step:nth-child(even) .step-connector::after {
+  left: -6px;
+  right: auto;
+}
+
+@media (max-width: 768px) {
+  .law-step {
+    width: 90%;
+    margin-left: 5% !important;
+  }
+  
+  .step-connector {
+    display: none;
+  }
+  
+  .timeline-line {
+    left: 20px;
+  }
+}
