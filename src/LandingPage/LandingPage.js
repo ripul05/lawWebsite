@@ -1,7 +1,7 @@
 import React from 'react';
 import './LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({ onGetStartedClick }) => {
   return (
     <section className="landing">
       <nav className="navbar">
@@ -17,7 +17,7 @@ const LandingPage = () => {
       <div className="landing-content">
         <h1>Justice. Honor. Law.</h1>
         <p>Explore the guiding principles of justice and the legacy of legal integrity that shapes society.</p>
-        <a href="#" className="cta">Get Started</a>
+        <button className="cta" onClick={onGetStartedClick}>Get Started</button>
       </div>
     </section>
   );

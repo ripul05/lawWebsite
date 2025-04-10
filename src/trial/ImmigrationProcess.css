@@ -1,0 +1,139 @@
+.law-flow-container {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #1a1a1a, #141415);
+  color: #f9fafb;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.law-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 3rem;
+}
+
+.law-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.law-step {
+  position: relative;
+  background: #1f2937;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 220px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.law-step:hover {
+  transform: translateY(-8px);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #60a5fa; /* Light blue for contrast */
+}
+
+.law-step h3 {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.law-step p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.arrow {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  font-size: 1.5rem;
+  color: #6b7280;
+  transform: translateY(-50%);
+}
+
+.law-map-section {
+  margin-top: 4rem;
+}
+
+.world-map {
+  width: 80%;
+  max-width: 900px;
+  opacity: 0.95;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+.map-note {
+  margin-top: 1rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+
+
+/* Image hover glow */
+img:hover {
+  filter: drop-shadow(0 0 15px #60a5fa);
+  transition: all 0.3s ease;
+}
+
+/* CTA Section */
+.cta-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.cta-text {
+  font-size: 2rem;
+  color: #f9fafb;
+  margin-bottom: 1.5rem;
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background: #60a5fa;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.pointer-character {
+  width: 60px;
+  height: auto;
+  animation: bouncePointer 1.8s infinite ease-in-out;
+}
+
+@keyframes bouncePointer {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
